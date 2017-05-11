@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'android-apt'
+apply plugin: 'realm-android'
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
@@ -24,6 +25,46 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile rootProject.ext.dependencies.libv7
+    //webview
+    compile files('libs/tbs_sdk_thirdapp_v2.2.0.1096_36549_sharewithdownload_withoutGame_obfs_20160830_211645.jar')
+
+    //base
     testCompile rootProject.ext.dependencies.test
+    compile rootProject.ext.dependencies.libv7
+    compile rootProject.ext.dependencies.design
+
+    //other
+    compile rootProject.ext.dependencies.logger
+    compile rootProject.ext.dependencies.crashreport
+    compile rootProject.ext.dependencies.multidex
+    compile rootProject.ext.dependencies.fragmentation
+    //canary
+    compile rootProject.ext.dependencies.blockcanaryAndroid
+    compile rootProject.ext.dependencies.blockcanaryMoOp
+    compile rootProject.ext.dependencies.leakcanaryAndroid
+    compile rootProject.ext.dependencies.leakcanaryAndroidNoOp
+
+    //rx2
+    compile rootProject.ext.dependencies.rxjava
+    compile rootProject.ext.dependencies.rxandroid
+    compile rootProject.ext.dependencies.rxpermissions
+
+    //dagger2
+    compile rootProject.ext.dependencies.dagger
+    compile rootProject.ext.dependencies.daggerCompiler
+    compile rootProject.ext.dependencies.butterknife
+    apt rootProject.ext.dependencies.butterknifeCompiler
+    provided rootProject.ext.dependencies.annotation
+
+    //network
+    compile rootProject.ext.dependencies.gson
+    compile rootProject.ext.dependencies.retrofit
+    compile rootProject.ext.dependencies.retrofitConverterGson
+    compile rootProject.ext.dependencies.retrofitAdapterRxjava2
+    compile rootProject.ext.dependencies.okhttp
+    compile rootProject.ext.dependencies.okhttpLoggingInterceptor
+    compile rootProject.ext.dependencies.glide
+    compile rootProject.ext.dependencies.glideOkhttp3Integration
+
+
 }
