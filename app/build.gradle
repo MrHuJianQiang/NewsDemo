@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
-apply plugin: 'android-apt'
 apply plugin: 'realm-android'
+apply plugin: 'com.jakewharton.butterknife'
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
@@ -11,6 +11,7 @@ android {
         versionCode rootProject.ext.versionCode
         versionName rootProject.ext.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -33,6 +34,11 @@ dependencies {
     compile rootProject.ext.dependencies.libv7
     compile rootProject.ext.dependencies.design
 
+
+    //ui
+    compile rootProject.ext.dependencies.materialsearchview
+
+
     //other
     compile rootProject.ext.dependencies.logger
     compile rootProject.ext.dependencies.crashreport
@@ -40,9 +46,9 @@ dependencies {
     compile rootProject.ext.dependencies.fragmentation
     //canary
     compile rootProject.ext.dependencies.blockcanaryAndroid
-    compile rootProject.ext.dependencies.blockcanaryMoOp
+  //  compile rootProject.ext.dependencies.blockcanaryMoOp
     compile rootProject.ext.dependencies.leakcanaryAndroid
-    compile rootProject.ext.dependencies.leakcanaryAndroidNoOp
+  //  compile rootProject.ext.dependencies.leakcanaryAndroidNoOp
 
     //rx2
     compile rootProject.ext.dependencies.rxjava
@@ -53,7 +59,7 @@ dependencies {
     compile rootProject.ext.dependencies.dagger
     compile rootProject.ext.dependencies.daggerCompiler
     compile rootProject.ext.dependencies.butterknife
-    apt rootProject.ext.dependencies.butterknifeCompiler
+    annotationProcessor  rootProject.ext.dependencies.butterknifeCompiler
     provided rootProject.ext.dependencies.annotation
 
     //network

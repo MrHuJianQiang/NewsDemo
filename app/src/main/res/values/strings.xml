@@ -1,3 +1,19 @@
 <resources>
-    <string name="app_name">NewsDemo</string>
+    <string name="app_name">NewsPractice</string>
+    <string name="app_intro">A pure reading App for you</string>
+
+
+    //main drawer
+    <string name="drawer_group_content">资讯</string>
+    <string name="drawer_group_opions">选项</string>
+    <string name="zhihu">知乎日报</string>
+    <string name="wechat">微信精选</string>
+    <string name="gank">干活集中营</string>
+    <string name="gold">稀土掘金</string>
+    <string name="v2ex">V2EX</string>
+    <string name="drawer_collection">收藏</string>
+    <string name="drawer_setting">设置</string>
+    <string name="drawer_about">关于</string>
+    <string name="drawer_open">打开</string>
+    <string name="drawer_close">关闭</string>
 </resources>

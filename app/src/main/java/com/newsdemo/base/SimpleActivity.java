@@ -23,6 +23,7 @@ public abstract class SimpleActivity extends SupportActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(getLayout());
         mUnBinder= ButterKnife.bind(this);
         mContext=this;
         onViewCreated();
@@ -33,14 +34,21 @@ public abstract class SimpleActivity extends SupportActivity {
     protected void setToolBar(Toolbar toolbar,String title){
         toolbar.setTitle(title);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);// 给左上角图标的左边加上一个返回的图标 。对应ActionBar.DISPLAY_HOME_AS_UP
+        getSupportActionBar().setDisplayShowHomeEnabled(true); //使左上角图标是否显示，如果设成false，则没有程序图标，仅仅就个标题，否则，显示应用程序图标，对应id为Android.R.id.home，对应ActionBar.DISPLAY_SHOW_HOME
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressedSupport();
             }
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        App.getInstance().removeActivity(this);
+        mUnBinder.unbind();
     }
 
     protected void onViewCreated(){}
