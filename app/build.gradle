@@ -33,12 +33,12 @@ dependencies {
     testCompile rootProject.ext.dependencies.test
     compile rootProject.ext.dependencies.libv7
     compile rootProject.ext.dependencies.design
-
+    compile rootProject.ext.dependencies.cardview
 
     //ui
     compile rootProject.ext.dependencies.materialsearchview
-
-
+    compile rootProject.ext.dependencies.multilineCollapsingtoolbar
+    compile rootProject.ext.dependencies.materialCalendarview
     //other
     compile rootProject.ext.dependencies.logger
     compile rootProject.ext.dependencies.crashreport

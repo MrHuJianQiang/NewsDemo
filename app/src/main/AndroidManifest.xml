@@ -20,7 +20,27 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ui.main.activity.MainActivity"></activity>
+        <!--主类-->
+        <activity android:name=".ui.main.activity.MainActivity"
+                  android:launchMode="singleTop"
+                  android:theme="@style/MainTheme"
+                  android:screenOrientation="portrait"
+            />
+
+        //知乎
+        <activity android:name=".ui.zhihu.activity.ZhihuDetailActivity"
+                  android:configChanges="orientation|screenSize|keyboardHidden"
+                  android:windowSoftInputMode="stateHidden|adjustResize"
+                  android:launchMode="singleTop"
+                  android:screenOrientation="portrait"
+
+            />
+        <activity android:name=".ui.zhihu.activity.CommentActivity"
+                  android:launchMode="singleTop"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".ui.zhihu.activity.CalendarActivity"
+                  android:launchMode="singleTop"
+                  android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

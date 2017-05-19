@@ -27,7 +27,7 @@ import com.newsdemo.ui.main.fragment.LikeFragment;
 import com.newsdemo.ui.main.fragment.SettingFragment;
 import com.newsdemo.ui.vtex.VtexMainFragment;
 import com.newsdemo.ui.wechat.WechatMainFragment;
-import com.newsdemo.ui.zhihu.ZhihuMainFragment;
+import com.newsdemo.ui.zhihu.fragment.ZhihuMainFragment;
 import com.newsdemo.util.SystemUtil;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
@@ -234,29 +234,6 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     }
 
 
-    private SupportFragment getTargetFragment(int item){
-        switch (item){
-            case Constants.TYPE_ZHIHU:
-                return mZhihuMainFragment;
-            case Constants.TYPE_GANK:
-                return mGankMainFragment;
-            case Constants.TYPE_WECHAT:
-                return mWechatMainFragment;
-            case Constants.TYPE_GOLD:
-                return mGankMainFragment;
-            case Constants.TYPE_VTEX:
-                return mVtexMainFragment;
-            case Constants.TYPE_LIKE:
-                return mLikeFragment;
-            case Constants.TYPE_SETTING:
-                return mSettingFragment;
-            case Constants.TYPE_ABOUT:
-                return mAboutFragment;
-        }
-        return mZhihuMainFragment;
-    }
-
-
     private int getCurrentItem(int item){
         switch (item){
             case Constants.TYPE_ZHIHU:
@@ -277,6 +254,29 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                 return R.id.drawer_about;
         }
         return R.id.drawer_zhihu;
+    }
+
+
+    private SupportFragment getTargetFragment(int item){
+        switch (item){
+            case Constants.TYPE_ZHIHU:
+                return mZhihuMainFragment;
+            case Constants.TYPE_GANK:
+                return mGankMainFragment;
+            case Constants.TYPE_WECHAT:
+                return mWechatMainFragment;
+            case Constants.TYPE_GOLD:
+                return mGankMainFragment;
+            case Constants.TYPE_VTEX:
+                return mVtexMainFragment;
+            case Constants.TYPE_LIKE:
+                return mLikeFragment;
+            case Constants.TYPE_SETTING:
+                return mSettingFragment;
+            case Constants.TYPE_ABOUT:
+                return mAboutFragment;
+        }
+        return mZhihuMainFragment;
     }
 
 

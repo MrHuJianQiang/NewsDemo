@@ -16,4 +16,12 @@
     <string name="drawer_about">关于</string>
     <string name="drawer_open">打开</string>
     <string name="drawer_close">关闭</string>
+
+
+
+
+    <string name="error_tips">糟糕！加载失败了ヽ(≧Д≦)ノ\n 偷偷告诉你一些可能的原因：\n1.惨不忍睹的网络环境\n 2.服务器君的不定期抽风\n 3.Geeks现在心情不好拒绝服务喔~</string>
+    <string name="detail_bottom_like">点赞</string>
+    <string name="detail_bottom_commit">评论</string>
+    <string name="detail_bottom_share">分析</string>
 </resources>

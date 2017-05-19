@@ -6,6 +6,7 @@ import com.newsdemo.dagger.module.ActivityModule;
 import com.newsdemo.dagger.scope.ActivityScope;
 import com.newsdemo.ui.main.activity.MainActivity;
 import com.newsdemo.ui.main.activity.WelcomeActivity;
+import com.newsdemo.ui.zhihu.activity.ZhihuDetailActivity;
 
 import dagger.Component;
 
@@ -18,4 +19,5 @@ public interface ActivityComponent {
     Activity getActivity();
     void inject(WelcomeActivity welcomeActivity);
     void inject(MainActivity mainActivity);
+    void inject(ZhihuDetailActivity zhihuDetailActivity);
 }
