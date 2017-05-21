@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.newsdemo.app.App;
+import com.newsdemo.util.GlideCircleTransform;
 import com.newsdemo.util.LogUtil;
 
 /**
@@ -27,7 +28,14 @@ public class GlidUtils {
         }
     }
 
-    public static void loadAll(Context context, String url, ImageView iv){ //使用Glide加载圆形ImageView(如头像)时，不要使用占位图
+    public static void loadCircle(Context context,String url,ImageView iv){//使用glide加载圆形头像
+        if (!App.getAppComponent().getPreferencesHelper().getNoImageState()){
+            Glide.with(context).load(url).transform(new GlideCircleTransform(context)).crossFade().diskCacheStrategy(DiskCacheStrategy.SOURCE).into(iv);
+        }
+    }
+
+
+    public static void loadAll(Context context, String url, ImageView iv){
         if (App.getAppComponent().getPreferencesHelper().getNoImageState()){
             Glide.with(context).load(url).crossFade().skipMemoryCache(true).diskCacheStrategy(DiskCacheStrategy.NONE).into(iv);
         }
