@@ -29,6 +29,8 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 
+import static com.newsdemo.app.Constants.IT_ZHIHU_DETAIL_ID;
+
 /**
  * Created by jianqiang.hu on 2017/5/15.
  */
@@ -78,7 +80,7 @@ public class DailyFragment extends RootFragment<DailyPresenter> implements Daily
 
                 Intent intent=new Intent();
                 intent.setClass(mContext, ZhihuDetailActivity.class);
-                intent.putExtra("id",mList.get(position).getId());
+                intent.putExtra(IT_ZHIHU_DETAIL_ID,mList.get(position).getId());
                 ActivityOptions options=ActivityOptions.makeSceneTransitionAnimation(mActivity,view,"shareView");
                 mContext.startActivity(intent,options.toBundle());
             }

@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.newsdemo.R;
+import com.newsdemo.app.Constants;
 import com.newsdemo.base.RootActivity;
 import com.newsdemo.base.contract.zhihu.ZhihuDetailContract;
 import com.newsdemo.component.GlidUtils;
@@ -88,7 +89,7 @@ public class ZhihuDetailActivity extends RootActivity<ZhihuDetailPresenter> impl
 
 
         Intent intent=getIntent();
-        id=intent.getExtras().getInt("id");
+        id=intent.getExtras().getInt(Constants.IT_ZHIHU_DETAIL_ID);
         isTransitionEnd=intent.getBooleanExtra("isNotTransition",false);
         mPresenter.queryLikeData(id);
         mPresenter.getDetailData(id);

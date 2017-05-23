@@ -56,6 +56,7 @@
                     android:textColor="@android:color/white"
                     />
             </FrameLayout>
+            <!--  app:layout_collapseMode="pin"  pin滑动以后固定在最顶端   -->
             <android.support.v7.widget.Toolbar
                 android:id="@+id/view_toolbar"
                 android:layout_width="match_parent"

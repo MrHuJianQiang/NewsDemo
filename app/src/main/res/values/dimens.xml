@@ -10,4 +10,5 @@
     <dimen name="detail_image_height">260dp</dimen>
     <dimen name="detail_bottom_height">56dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="theme_image_height">120dp</dimen>
 </resources>
