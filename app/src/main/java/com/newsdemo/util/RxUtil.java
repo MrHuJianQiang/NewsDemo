@@ -63,7 +63,7 @@ public class RxUtil {
      * @param <T>
      * @return
      */
-    public static <T> FlowableTransformer<WXHttpResponse<T>,T> handleEXResult(){
+    public static <T> FlowableTransformer<WXHttpResponse<T>,T> handleWXResult(){
         return new FlowableTransformer<WXHttpResponse<T>, T>() {
             @Override
             public Flowable<T> apply(Flowable<WXHttpResponse<T>> wxHttpResponse) {

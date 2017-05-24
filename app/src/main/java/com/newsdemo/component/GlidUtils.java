@@ -10,6 +10,9 @@ import com.newsdemo.app.App;
 import com.newsdemo.util.GlideCircleTransform;
 import com.newsdemo.util.LogUtil;
 
+import jp.wasabeef.glide.transformations.BlurTransformation;
+import jp.wasabeef.glide.transformations.CropCircleTransformation;
+
 /**
  * Created by jianqiang.hu on 2017/5/12.
  */
@@ -30,10 +33,15 @@ public class GlidUtils {
 
     public static void loadCircle(Context context,String url,ImageView iv){//使用glide加载圆形头像
         if (!App.getAppComponent().getPreferencesHelper().getNoImageState()){
-            Glide.with(context).load(url).transform(new GlideCircleTransform(context)).crossFade().diskCacheStrategy(DiskCacheStrategy.SOURCE).into(iv);
+            Glide.with(context).load(url).bitmapTransform(new CropCircleTransformation(context)).crossFade().diskCacheStrategy(DiskCacheStrategy.SOURCE).into(iv);
         }
     }
 
+    public static void loadBlur(Context context,String url,ImageView iv,int rate){
+        if (!App.getAppComponent().getPreferencesHelper().getNoImageState()){
+            Glide.with(context).load(url).bitmapTransform(new BlurTransformation(context,rate)).crossFade().diskCacheStrategy(DiskCacheStrategy.SOURCE).into(iv);
+        }
+    }
 
     public static void loadAll(Context context, String url, ImageView iv){
         if (App.getAppComponent().getPreferencesHelper().getNoImageState()){

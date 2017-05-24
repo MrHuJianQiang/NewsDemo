@@ -4,6 +4,7 @@ import android.app.Activity;
 
 import com.newsdemo.dagger.module.FragmentModule;
 import com.newsdemo.dagger.scope.FragmentScope;
+import com.newsdemo.ui.wechat.fragment.WechatMainFragment;
 import com.newsdemo.ui.zhihu.fragment.CommentFragment;
 import com.newsdemo.ui.zhihu.fragment.DailyFragment;
 import com.newsdemo.ui.zhihu.fragment.HotFragment;
@@ -30,4 +31,6 @@ public interface FragmentComponent {
     void inject(HotFragment hotFragment);
 
     void inject(CommentFragment commentFragment);
+
+    void inject(WechatMainFragment wechatMainFragment);
 }
