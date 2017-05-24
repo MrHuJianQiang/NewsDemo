@@ -39,6 +39,8 @@ dependencies {
     compile rootProject.ext.dependencies.materialsearchview
     compile rootProject.ext.dependencies.multilineCollapsingtoolbar
     compile rootProject.ext.dependencies.materialCalendarview
+    compile rootProject.ext.dependencies.gildeTrans
+
     //other
     compile rootProject.ext.dependencies.logger
     compile rootProject.ext.dependencies.crashreport

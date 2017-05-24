@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.newsdemo.R;
 import com.newsdemo.component.GlidUtils;
-import com.newsdemo.model.bean.HotListBean;
+import com.newsdemo.model.bean.ThemeChildListBean;
 
 import java.util.List;
 
@@ -19,18 +19,18 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Created by jianqiang.hu on 2017/5/23.
+ * Created by jianqiang.hu on 2017/5/24.
  */
 
-public class HotAdapter extends RecyclerView.Adapter<HotAdapter.ViewHolder>{
+public class ThemeChildAdapter extends RecyclerView.Adapter<ThemeChildAdapter.ViewHolder> {
 
-    private List<HotListBean.RecentBean> mList;
+    private List<ThemeChildListBean.StoriesBean> mList;
     private Context mContext;
     private LayoutInflater inflater;
-    private HotAdapter.onItemClickListener onItemClickListener;
+    private ThemeChildAdapter.onItemClickListener onItemClickListener;
 
 
-    public HotAdapter(Context mContext, List<HotListBean.RecentBean> mList){
+    public ThemeChildAdapter(Context mContext, List<ThemeChildListBean.StoriesBean> mList){
         this.mContext=mContext;
         this.mList=mList;
         inflater=LayoutInflater.from(mContext);
@@ -38,19 +38,17 @@ public class HotAdapter extends RecyclerView.Adapter<HotAdapter.ViewHolder>{
 
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ViewHolder(inflater.inflate(R.layout.item_daily,parent,false));
+    public ThemeChildAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return new ThemeChildAdapter.ViewHolder(inflater.inflate(R.layout.item_daily,parent,false));
     }
-
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
+    public void onBindViewHolder(final ThemeChildAdapter.ViewHolder holder, int position) {
         holder.title.setText(mList.get(position).getTitle());
-        if (mList.get(position).getReadState()){
-            holder.title.setTextColor(ContextCompat.getColor(mContext,R.color.news_read));
-        }else{
-            holder.title.setTextColor(ContextCompat.getColor(mContext,R.color.news_unread));
+
+
+        if (mList.get(position).getImages()!=null&&mList.get(position).getImages().size()>0){
+            GlidUtils.load(mContext,mList.get(position).getImages().get(0),holder.image);
         }
-        GlidUtils.load(mContext,mList.get(position).getThumbnail(),holder.image);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,7 +68,7 @@ public class HotAdapter extends RecyclerView.Adapter<HotAdapter.ViewHolder>{
         return mList.size();
     }
 
-    public void setOnItemClickListener(HotAdapter.onItemClickListener onItemClickListener){
+    public void setOnItemClickListener(ThemeChildAdapter.onItemClickListener onItemClickListener){
         this.onItemClickListener=onItemClickListener;
     }
 
@@ -96,5 +94,4 @@ public class HotAdapter extends RecyclerView.Adapter<HotAdapter.ViewHolder>{
             ButterKnife.bind(this,itemView);
         }
     }
-
 }

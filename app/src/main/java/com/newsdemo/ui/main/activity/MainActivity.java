@@ -26,7 +26,7 @@ import com.newsdemo.ui.main.fragment.AboutFragment;
 import com.newsdemo.ui.main.fragment.LikeFragment;
 import com.newsdemo.ui.main.fragment.SettingFragment;
 import com.newsdemo.ui.vtex.VtexMainFragment;
-import com.newsdemo.ui.wechat.WechatMainFragment;
+import com.newsdemo.ui.wechat.fragment.WechatMainFragment;
 import com.newsdemo.ui.zhihu.fragment.ZhihuMainFragment;
 import com.newsdemo.util.SystemUtil;
 import com.tbruyelle.rxpermissions2.RxPermissions;

@@ -17,6 +17,7 @@ import com.newsdemo.util.SystemUtil;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * Created by jianqiang.hu on 2017/5/23.
@@ -29,7 +30,7 @@ public class ThemeAdpter extends RecyclerView.Adapter<ThemeAdpter.ViewHolder>{
     private LayoutInflater inflater;
     private List<ThemeListBean.OthersBean> mList;
     private Context mContext;
-    private ViewHolder.OnItemClickListener onItemClickListener;
+    private OnItemClickListener onItemClickListener;
 
     public ThemeAdpter(Context mContext, List<ThemeListBean.OthersBean> mList) {
         this.mList = mList;
@@ -82,6 +83,7 @@ public class ThemeAdpter extends RecyclerView.Adapter<ThemeAdpter.ViewHolder>{
 
         public ViewHolder(View itemView) {
             super(itemView);
+            ButterKnife.bind(this,itemView);
         }
 
     }
