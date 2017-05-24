@@ -20,7 +20,7 @@ import com.newsdemo.app.Constants;
 import com.newsdemo.base.BaseActivity;
 import com.newsdemo.base.contract.main.MainContract;
 import com.newsdemo.presenter.main.MainPresenter;
-import com.newsdemo.ui.gank.GankMainFragment;
+import com.newsdemo.ui.gank.fragment.GankMainFragment;
 import com.newsdemo.ui.gold.GoldMainFragment;
 import com.newsdemo.ui.main.fragment.AboutFragment;
 import com.newsdemo.ui.main.fragment.LikeFragment;

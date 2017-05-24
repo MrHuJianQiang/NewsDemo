@@ -1,4 +1,4 @@
-package com.newsdemo.ui.gank;
+package com.newsdemo.ui.gank.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

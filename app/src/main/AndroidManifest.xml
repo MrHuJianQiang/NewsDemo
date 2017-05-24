@@ -50,6 +50,13 @@
                   android:launchMode="singleTop"
                   android:screenOrientation="portrait"
             />
+
+
+        //微信
+        <activity android:name=".ui.gank.activity.TechDetailActivity"
+                  android:launchMode="singleTop"
+                  android:screenOrientation="portrait"
+            />
     </application>
 
 </manifest>

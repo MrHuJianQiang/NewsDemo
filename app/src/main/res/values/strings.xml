@@ -25,4 +25,12 @@
     <string name="detail_bottom_commit">评论</string>
     <string name="detail_bottom_share">分析</string>
     <string name="comment_expand">收起</string>
+
+
+
+
+    <string name="action_like">收藏</string>
+    <string name="ic_toolbar_copy">复制链接到剪贴板</string>
+    <string name="action_share">分享链接</string>
+
 </resources>

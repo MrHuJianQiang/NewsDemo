@@ -9,8 +9,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.newsdemo.R;
+import com.newsdemo.app.Constants;
 import com.newsdemo.component.GlidUtils;
 import com.newsdemo.model.bean.WXItemBean;
+import com.newsdemo.ui.gank.activity.TechDetailActivity;
 
 import java.util.List;
 
@@ -39,7 +41,7 @@ public class WechatAdapter extends RecyclerView.Adapter<WechatAdapter.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, int position) {
         GlidUtils.load(mContext,mList.get(position).getPicUrl(),holder.ivImage);
         holder.tvTitle.setText(mList.get(position).getTitle());
         holder.tvFrom.setText(mList.get(position).getDescription());
@@ -48,7 +50,13 @@ public class WechatAdapter extends RecyclerView.Adapter<WechatAdapter.ViewHolder
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                TechDetailActivity.launcher(new TechDetailActivity.Builder()
+                                            .setmContext(mContext)
+                                            .setId(mList.get(holder.getAdapterPosition()).getPicUrl())//wechat API 没有id，用图片来做唯一数据库索引
+                                            .setImgUrl(mList.get(holder.getAdapterPosition()).getPicUrl())
+                                            .setTitle(mList.get(holder.getAdapterPosition()).getTitle())
+                                            .setUrl(mList.get(holder.getAdapterPosition()).getUrl())
+                                            .setType(Constants.TYPE_WECHAT));
             }
         });
 

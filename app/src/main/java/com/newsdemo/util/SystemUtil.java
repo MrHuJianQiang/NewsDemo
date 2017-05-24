@@ -1,9 +1,12 @@
 package com.newsdemo.util;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.TextUtils;
+import android.widget.Toast;
 
 import com.newsdemo.app.App;
 
@@ -68,6 +71,18 @@ public class SystemUtil {
             }
         }
         return null;
+    }
+
+    /**
+     * 保存文字到剪贴板
+     * @param context
+     * @param text
+     */
+    public static void copyToClipBoard(Context context, String text) {
+        ClipData clipData = ClipData.newPlainText("url", text);
+        ClipboardManager manager = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+        manager.setPrimaryClip(clipData);
+        ToastUtil.show("已复制到剪贴板",ToastUtil.LENGTH_SHORT);
     }
     /**
      * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
