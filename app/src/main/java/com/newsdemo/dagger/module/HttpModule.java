@@ -180,6 +180,7 @@ public class HttpModule {
     MyApis provideMyService(@MyUrl Retrofit retrofit) {
         return retrofit.create(MyApis.class);
     }
+
     private Retrofit createRetrofit(Retrofit.Builder builder,OkHttpClient client,String url){
         return builder
                 .baseUrl(url)

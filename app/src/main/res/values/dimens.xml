@@ -12,4 +12,5 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="theme_image_height">120dp</dimen>
     <dimen name="content_pading">8dp</dimen>
+    <dimen name="tech_icon_size">32dp</dimen>
 </resources>
