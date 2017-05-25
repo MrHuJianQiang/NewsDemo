@@ -1,15 +1,20 @@
 package com.newsdemo.ui.gank.fragment;
 
+import android.app.ActivityOptions;
+import android.content.Intent;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.view.View;
 
 import com.newsdemo.R;
+import com.newsdemo.app.Constants;
 import com.newsdemo.base.RootFragment;
 import com.newsdemo.base.SimpleFragment;
 import com.newsdemo.base.contract.gank.GirlConstarct;
 import com.newsdemo.model.bean.GankItemBean;
 import com.newsdemo.presenter.gank.GirlPresenter;
+import com.newsdemo.ui.gank.activity.GirlDetailActivity;
 import com.newsdemo.ui.gank.adapter.GirlAdapter;
 
 import java.util.ArrayList;
@@ -65,6 +70,17 @@ public class GirlFragment extends RootFragment<GirlPresenter> implements GirlCon
                     isLoadingMore = true;
                     mPresentter.getMoreGirlData();
                 }
+            }
+        });
+        mAdapter.setOnItemClickListener(new GirlAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClickListener(int position, View view) {
+                Intent intent=new Intent();
+                intent.setClass(mContext, GirlDetailActivity.class);
+                intent.putExtra(Constants.IT_GANK_GRIL_URL,mList.get(position).getUrl());
+                intent.putExtra(Constants.IT_GANK_GRIL_ID,mList.get(position).get_id());
+                ActivityOptions options=ActivityOptions.makeSceneTransitionAnimation(mActivity,view,"shareView");
+                mContext.startActivity(intent,options.toBundle());
             }
         });
         stateLoading();

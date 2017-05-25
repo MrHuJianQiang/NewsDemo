@@ -8,7 +8,7 @@
     <string name="drawer_group_opions">选项</string>
     <string name="zhihu">知乎日报</string>
     <string name="wechat">微信精选</string>
-    <string name="gank">干活集中营</string>
+    <string name="gank">干货集中营</string>
     <string name="gold">稀土掘金</string>
     <string name="v2ex">V2EX</string>
     <string name="drawer_collection">收藏</string>
@@ -28,9 +28,10 @@
 
 
 
-
+    <string name="action_save">保存到本地</string>
     <string name="action_like">收藏</string>
     <string name="ic_toolbar_copy">复制链接到剪贴板</string>
     <string name="action_share">分享链接</string>
+    <string name="action_search">搜索</string>
 
 </resources>

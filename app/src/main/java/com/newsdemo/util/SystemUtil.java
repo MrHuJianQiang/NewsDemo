@@ -3,14 +3,22 @@ package com.newsdemo.util;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.text.TextUtils;
-import android.widget.Toast;
+import android.view.View;
 
 import com.newsdemo.app.App;
+import com.newsdemo.app.Constants;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -84,6 +92,51 @@ public class SystemUtil {
         manager.setPrimaryClip(clipData);
         ToastUtil.show("已复制到剪贴板",ToastUtil.LENGTH_SHORT);
     }
+
+    public static Uri saveBitmapToFile(Context context, String url,Bitmap bitmap,View container,boolean isShare){
+        String filename=url.substring(url.lastIndexOf("/"),url.lastIndexOf("."))+".png";
+        File fileDir=new File(Constants.PATH_SDCARD);
+        if (!fileDir.exists()){
+            fileDir.mkdirs();
+        }
+        File imgFile=new File(fileDir,filename);
+        Uri uri=Uri.fromFile(imgFile);
+
+        if (isShare && imgFile.exists()){
+            return uri;
+        }
+
+        try {
+            FileOutputStream fos =new FileOutputStream(imgFile);
+            boolean isCompress=bitmap.compress(Bitmap.CompressFormat.PNG,90,fos);
+            if (isCompress){
+                SnackbarUtil.showShort(container,"保存妹纸成功n(*≧▽≦*)n");
+            }else{
+                SnackbarUtil.showShort(container,"保存妹纸失败ヽ(≧Д≦)ノ");
+            }
+            fos.flush();
+            fos.close();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            SnackbarUtil.showShort(container,"保存妹纸失败ヽ(≧Д≦)ノ");
+        } catch (IOException e) {
+            e.printStackTrace();
+            SnackbarUtil.showShort(container,"保存妹纸失败ヽ(≧Д≦)ノ");
+        }
+
+        //更新相册
+        try {
+            MediaStore.Images.Media.insertImage(context.getContentResolver(),imgFile.getAbsolutePath(),filename,null);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        context.sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE,uri));
+        return uri;
+    }
+
+
+
     /**
      * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
      */

@@ -40,6 +40,7 @@ dependencies {
     compile rootProject.ext.dependencies.multilineCollapsingtoolbar
     compile rootProject.ext.dependencies.materialCalendarview
     compile rootProject.ext.dependencies.gildeTrans
+    compile rootProject.ext.dependencies.PhotoView
 
     //other
     compile rootProject.ext.dependencies.logger
