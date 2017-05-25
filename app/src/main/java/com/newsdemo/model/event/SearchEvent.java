@@ -7,6 +7,11 @@ package com.newsdemo.model.event;
 public class SearchEvent {
     private int type;
     private String query;
+
+    public SearchEvent(String query,int type){
+        this.query=query;
+        this.type=type;
+    }
     public int getType() {
         return type;
     }

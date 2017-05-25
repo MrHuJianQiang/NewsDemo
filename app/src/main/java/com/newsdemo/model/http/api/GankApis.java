@@ -33,7 +33,7 @@ public interface GankApis {
      * @param page
      * @return
      */
-    @GET("date/福利/{num}/{page}")
+    @GET("data/福利/{num}/{page}")
     Flowable<GankHttpResponse<List<GankItemBean>>>  getGirlList(@Path("num") int num,@Path("page") int page);
 
     /**
@@ -41,7 +41,7 @@ public interface GankApis {
      * @param num
      * @return
      */
-    @GET("date/福利/{num}")
+    @GET("random/data/福利/{num}")
     Flowable<GankHttpResponse<List<GankItemBean>>> getRandomGirl(@Path("num") int num);
 
     /**

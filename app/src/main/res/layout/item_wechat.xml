@@ -15,8 +15,10 @@
         android:layout_marginStart="6dp"
         android:layout_marginEnd="6dp"
         android:layout_marginBottom="3dp"
+        app:cardBackgroundColor="@color/colorCard"
         app:cardElevation="2dp"
-        app:cardCornerRadius="2sp"
+        app:cardCornerRadius="2dp"
+        android:foreground="?attr/selectableItemBackground"
         >
 
         <LinearLayout
@@ -29,12 +31,15 @@
                 android:scaleType="centerCrop"
                 android:transitionName="shareView"
                 android:layout_width="100dp"
-                android:layout_height="match_parent"/>
+                android:layout_height="100dp"
+                android:src="@mipmap/ic_launcher"
+                />
             <LinearLayout
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:layout_margin="8dp"
                 >
                 <TextView
                     android:id="@+id/tv_wechat_item_title"

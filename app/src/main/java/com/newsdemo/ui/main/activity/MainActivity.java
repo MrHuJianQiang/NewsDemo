@@ -19,6 +19,8 @@ import com.newsdemo.app.App;
 import com.newsdemo.app.Constants;
 import com.newsdemo.base.BaseActivity;
 import com.newsdemo.base.contract.main.MainContract;
+import com.newsdemo.component.RxBus;
+import com.newsdemo.model.event.SearchEvent;
 import com.newsdemo.presenter.main.MainPresenter;
 import com.newsdemo.ui.gank.fragment.GankMainFragment;
 import com.newsdemo.ui.gold.GoldMainFragment;
@@ -90,7 +92,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
             showFragment=mPresenter.getCurrentItem();
             hideFragment=Constants.TYPE_ZHIHU;
             showHideFragment(getTargetFragment(showFragment),getTargetFragment(hideFragment));
-            mNavigationView.getMenu().findItem(R.id.drawer_zhihu).setChecked(true);
+            mNavigationView.getMenu().findItem(R.id.drawer_zhihu).setChecked(false);
             mToolbar.setTitle(mNavigationView.getMenu().findItem(getCurrentItem(showFragment)).getTitle().toString());
             hideFragment=showFragment;
         }
@@ -172,7 +174,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                 if (showFragment==Constants.TYPE_GANK){
 
                 }else if(showFragment==Constants.TYPE_WECHAT){
-
+                    RxBus.getDefault().post(new SearchEvent(query,Constants.TYPE_WECHAT));
                 }
                 return false;
             }
@@ -266,7 +268,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
             case Constants.TYPE_WECHAT:
                 return mWechatMainFragment;
             case Constants.TYPE_GOLD:
-                return mGankMainFragment;
+                return mGoldMainFragment;
             case Constants.TYPE_VTEX:
                 return mVtexMainFragment;
             case Constants.TYPE_LIKE:

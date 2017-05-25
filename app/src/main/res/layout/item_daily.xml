@@ -18,6 +18,7 @@
             app:cardElevation="2dp"
             app:cardCornerRadius="2dp"
             app:contentPadding="8dp"
+            android:foreground="?attr/selectableItemBackground"
         >
             <LinearLayout
                 android:orientation="horizontal"

@@ -63,10 +63,22 @@ public class WechatMainFragment extends RootFragment<WeChatPresent> implements W
         mAdapter=new WechatAdapter(mContext,mList);
         rvWeChatList.setLayoutManager(new LinearLayoutManager(mContext));
         rvWeChatList.setAdapter(mAdapter);
+        stateLoading();
+        mPresentter.getWeChatData();
+
         rvWeChatList.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
+                int lastVisibleItem=((LinearLayoutManager)rvWeChatList.getLayoutManager()).findLastVisibleItemPosition();
+                int totalItemCount = rvWeChatList.getLayoutManager().getItemCount();
+
+                if (lastVisibleItem>=totalItemCount-2 && dy>0){//还剩2个Item时加载更多
+                    if (!isLoadingMore){
+                        isLoadingMore=true;
+                        mPresentter.getMoreWechatData();
+                    }
+                }
             }
         });
 
@@ -76,13 +88,15 @@ public class WechatMainFragment extends RootFragment<WeChatPresent> implements W
                 mPresentter.getWeChatData();
             }
         });
-        stateLoading();
-        mPresentter.getWeChatData();
+
     }
 
     @Override
     public void showMoreContent(List<WXItemBean> list) {
-
+        stateMain();
+        mList.addAll(list);
+        mAdapter.notifyDataSetChanged();
+        isLoadingMore=false;
     }
 
 
