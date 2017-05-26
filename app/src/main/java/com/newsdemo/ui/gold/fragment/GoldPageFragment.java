@@ -11,16 +11,13 @@ import com.newsdemo.base.contract.gold.GoldContract;
 import com.newsdemo.model.bean.GoldListBean;
 import com.newsdemo.presenter.gold.GoldPresenter;
 import com.newsdemo.ui.gold.adapter.GoldListAdapter;
+import com.newsdemo.widget.GoldItemDection;
 import com.newsdemo.widget.TouchSwipeRefreshLayout;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-
-import static com.tencent.bugly.crashreport.crash.c.e;
-import static com.tencent.bugly.crashreport.crash.c.f;
-import static com.tencent.bugly.crashreport.crash.c.i;
 
 /**
  * Created by jianqiang.hu on 2017/5/26.
@@ -34,7 +31,7 @@ public class GoldPageFragment extends RootFragment<GoldPresenter> implements Gol
     TouchSwipeRefreshLayout swipeRefresh;
 
     private GoldListAdapter mAdapter;
-
+    private GoldItemDection mDecoration;
 
     private boolean isLoadingMore=false;
 
@@ -49,9 +46,12 @@ public class GoldPageFragment extends RootFragment<GoldPresenter> implements Gol
     protected void initEventAndData() {
         super.initEventAndData();
         mType=getArguments().getString(Constants.IT_GOLD_TYPE);
+        mDecoration=new GoldItemDection();
         mAdapter=new GoldListAdapter(mContext,new ArrayList<GoldListBean>(),getArguments().getString(Constants.IT_GOLD_TYPE_STR));
         rvGoldList.setLayoutManager(new LinearLayoutManager(mContext));
         rvGoldList.setAdapter(mAdapter);
+        rvGoldList.addItemDecoration(mDecoration);
+
 
         rvGoldList.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
@@ -72,7 +72,7 @@ public class GoldPageFragment extends RootFragment<GoldPresenter> implements Gol
             @Override
             public void onRefresh() {
                 if (!mAdapter.getHotFlag()){
-
+                    rvGoldList.addItemDecoration(mDecoration);
                 }
                 mAdapter.setHotFlag(true);
                 mPresentter.getGoldData(mType);
@@ -81,7 +81,7 @@ public class GoldPageFragment extends RootFragment<GoldPresenter> implements Gol
         mAdapter.setOnHotCloseListener(new GoldListAdapter.onHotCloseListener() {
             @Override
             public void onClose() {
-
+                rvGoldList.removeItemDecoration(mDecoration);
             }
         });
         stateLoading();
