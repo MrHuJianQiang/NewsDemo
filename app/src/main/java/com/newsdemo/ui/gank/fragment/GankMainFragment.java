@@ -9,6 +9,8 @@ import android.support.v4.view.ViewPager;
 import com.newsdemo.R;
 import com.newsdemo.app.Constants;
 import com.newsdemo.base.SimpleFragment;
+import com.newsdemo.component.RxBus;
+import com.newsdemo.model.event.SearchEvent;
 import com.newsdemo.ui.gank.adapter.GankMainAdapter;
 
 import java.util.ArrayList;
@@ -80,7 +82,22 @@ public class GankMainFragment extends SimpleFragment{
         tabLayout.addTab(tabLayout.newTab().setText(tabTitle[3]));
         tabLayout.setupWithViewPager(mViewPager);
 
+    }
 
-
+    public void doSearch(String query){
+        switch (mViewPager.getCurrentItem()){
+            case 0:
+                RxBus.getDefault().post(new SearchEvent(query,Constants.TYPE_ANDROID));
+                break;
+            case 1:
+                RxBus.getDefault().post(new SearchEvent(query,Constants.TYPE_IOS));
+                break;
+            case 2:
+                RxBus.getDefault().post(new SearchEvent(query,Constants.TYPE_WEB));
+                break;
+            case 3:
+                RxBus.getDefault().post(new SearchEvent(query,Constants.TYPE_GIRL));
+                break;
+        }
     }
 }

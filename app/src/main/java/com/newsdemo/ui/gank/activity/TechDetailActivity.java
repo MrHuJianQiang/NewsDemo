@@ -155,7 +155,7 @@ public class TechDetailActivity extends SimpleActivity {
                     bean.setImage(imgUrl);
                     bean.setUrl(url);
                     bean.setTitle(title);
-                    bean.setTime(type);
+                    bean.setType(type);
                     bean.setTime(System.currentTimeMillis());
                     mRealmHelper.insertLikeBean(bean);
                 }
@@ -249,7 +249,7 @@ public class TechDetailActivity extends SimpleActivity {
             intent.putExtra(Constants.IT_GANK_DETAIL_IMG_URL,builder.imgUrl);
             intent.putExtra(Constants.IT_GANK_DETAIL_TITLE,builder.title);
             intent.putExtra(Constants.IT_GANK_DETAIL_ID,builder.id);
-            intent.putExtra(Constants.IT_GANK_TYPE,builder.type);
+            intent.putExtra(Constants.IT_GANK_DETAIL_TYPE,builder.type);
             ActivityOptions options=ActivityOptions.makeSceneTransitionAnimation(builder.mActivity,builder.shareView, "shareView");
             builder.mContext.startActivity(intent,options.toBundle());
         }else{

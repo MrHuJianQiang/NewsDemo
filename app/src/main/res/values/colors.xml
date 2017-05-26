@@ -23,6 +23,6 @@
     <color name="comment_line">#dddddd</color>
     <color name="comment_at">#5d8698</color>
     <color name="bottom_text">#a9a9a9</color>
-
+    <color name="gold_title">#3F51B5</color>
     <color name="news_read">#898989</color>
 </resources>

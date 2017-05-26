@@ -3,7 +3,9 @@
               xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+
+    >
 
     <LinearLayout
         android:background="@color/colorPrimary"
@@ -28,4 +30,10 @@
             android:src="@mipmap/ic_menu"
             />
     </LinearLayout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_gold_main"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        />
 </LinearLayout>

@@ -34,7 +34,7 @@ public interface GoldApis {
                                                                @Query("where") String where,
                                                                @Query("order") String order,
                                                                @Query("include") String include,
-                                                               @Query("limit") int limiy,
+                                                               @Query("limit") int limit,
                                                                @Query("skip") int skip
                                                                );
 

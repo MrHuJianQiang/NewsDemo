@@ -23,7 +23,7 @@ import com.newsdemo.component.RxBus;
 import com.newsdemo.model.event.SearchEvent;
 import com.newsdemo.presenter.main.MainPresenter;
 import com.newsdemo.ui.gank.fragment.GankMainFragment;
-import com.newsdemo.ui.gold.GoldMainFragment;
+import com.newsdemo.ui.gold.fragment.GoldMainFragment;
 import com.newsdemo.ui.main.fragment.AboutFragment;
 import com.newsdemo.ui.main.fragment.LikeFragment;
 import com.newsdemo.ui.main.fragment.SettingFragment;
@@ -172,7 +172,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
             @Override
             public boolean onQueryTextSubmit(String query) {
                 if (showFragment==Constants.TYPE_GANK){
-
+                    mGankMainFragment.doSearch(query);
                 }else if(showFragment==Constants.TYPE_WECHAT){
                     RxBus.getDefault().post(new SearchEvent(query,Constants.TYPE_WECHAT));
                 }
