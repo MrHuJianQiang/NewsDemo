@@ -1,5 +1,6 @@
 package com.newsdemo.ui.gold.activity;
 
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.support.v7.widget.helper.ItemTouchHelper;
@@ -43,6 +44,7 @@ public class GoldManagerActivity extends SimpleActivity{
         setToolBar(toolBar,"首页特别展示");
         mList=((GoldManagerBean)getIntent().getParcelableExtra(Constants.IT_GOLD_MANAGER)).getManagerList();
         mAdapter=new GoldManagerAdapter(mContext,mList);
+        rvGoldManagerList.setLayoutManager(new LinearLayoutManager(mContext));
         rvGoldManagerList.setAdapter(mAdapter);
         mCallback=new DefaultItemTouchHelperCallBack(new DefaultItemTouchHelperCallBack.OnItemTouchCallbackListener() {
             @Override

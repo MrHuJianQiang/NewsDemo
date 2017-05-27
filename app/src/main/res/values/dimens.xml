@@ -15,4 +15,5 @@
     <dimen name="tech_icon_size">32dp</dimen>
     <dimen name="gold_image_size">60dp</dimen>
     <dimen name="gold_icon_size">16dp</dimen>
+    <dimen name="vtex_image_size">36dp</dimen>
 </resources>

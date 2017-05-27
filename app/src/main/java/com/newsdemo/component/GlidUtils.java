@@ -12,6 +12,7 @@ import com.newsdemo.util.LogUtil;
 
 import jp.wasabeef.glide.transformations.BlurTransformation;
 import jp.wasabeef.glide.transformations.CropCircleTransformation;
+import jp.wasabeef.glide.transformations.CropSquareTransformation;
 
 /**
  * Created by jianqiang.hu on 2017/5/12.
@@ -37,9 +38,28 @@ public class GlidUtils {
         }
     }
 
+    /**
+     * 毛玻璃
+     * @param context
+     * @param url
+     * @param iv
+     * @param rate  模糊程度
+     */
     public static void loadBlur(Context context,String url,ImageView iv,int rate){
         if (!App.getAppComponent().getPreferencesHelper().getNoImageState()){
             Glide.with(context).load(url).bitmapTransform(new BlurTransformation(context,rate)).crossFade().diskCacheStrategy(DiskCacheStrategy.SOURCE).into(iv);
+        }
+    }
+
+    /**
+     * 圆角
+     * @param context
+     * @param url
+     * @param iv
+     */
+    public static void loadCrop(Context context,String url,ImageView iv){
+        if (!App.getAppComponent().getPreferencesHelper().getNoImageState()){
+            Glide.with(context).load(url).bitmapTransform(new CropCircleTransformation(context)).crossFade().diskCacheStrategy(DiskCacheStrategy.SOURCE).into(iv);
         }
     }
 

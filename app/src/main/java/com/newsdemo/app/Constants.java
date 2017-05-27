@@ -94,6 +94,8 @@ public class Constants {
 
     public static final String IT_VTEX_NODE_NAME = "vtex_node_name";
 
+    public static final String IT_VTEX_NODE_VALUE="vtex_node_value";
+
     public static final String IT_ZHIHU_DETAIL_ID = "zhihu_detail_id";
 
     public static final String IT_ZHIHU_DETAIL_TRANSITION = "zhihu_detail_transition";

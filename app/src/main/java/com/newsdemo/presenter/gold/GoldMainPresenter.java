@@ -82,7 +82,7 @@ public class GoldMainPresenter extends RxPresent<GoldMainContract.View> implemen
         mList.add(new GoldManagerItemBean(4,false));
         mList.add(new GoldManagerItemBean(5,false));
         mList.add(new GoldManagerItemBean(6,false));
-        mList.add(new GoldManagerItemBean(6,false));
+        mList.add(new GoldManagerItemBean(7,false));
     }
 
 

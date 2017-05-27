@@ -74,6 +74,6 @@ dependencies {
     compile rootProject.ext.dependencies.okhttpLoggingInterceptor
     compile rootProject.ext.dependencies.glide
     compile rootProject.ext.dependencies.glideOkhttp3Integration
-
+    compile rootProject.ext.dependencies.jsoup
 
 }

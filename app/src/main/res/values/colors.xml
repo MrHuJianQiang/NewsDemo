@@ -25,4 +25,6 @@
     <color name="bottom_text">#a9a9a9</color>
     <color name="gold_title">#3F51B5</color>
     <color name="news_read">#898989</color>
+    <color name="topic_text">#afafaf</color>
+    <color name="node_bg">#f2f3f5</color>
 </resources>

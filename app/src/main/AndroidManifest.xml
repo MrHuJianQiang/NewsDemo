@@ -52,7 +52,7 @@
             />
 
 
-        //微信
+        //Gank
         <activity android:name=".ui.gank.activity.TechDetailActivity"
                   android:configChanges="orientation|screenSize|keyboardHidden"
                   android:windowSoftInputMode="stateHidden|adjustResize"
@@ -60,6 +60,16 @@
                   android:screenOrientation="portrait"
             />
         <activity android:name=".ui.gank.activity.GirlDetailActivity"
+                  android:launchMode="singleTop"
+                  android:screenOrientation="portrait"/>
+
+        //掘金
+        <activity android:name=".ui.gold.activity.GoldManagerActivity"
+                  android:launchMode="singleTop"
+                  android:screenOrientation="portrait"/>
+
+        //v2ex
+        <activity android:name=".ui.vtex.activity.NodeActivity"
                   android:launchMode="singleTop"
                   android:screenOrientation="portrait"/>
     </application>
