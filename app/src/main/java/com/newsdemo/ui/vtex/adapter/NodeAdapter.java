@@ -1,6 +1,7 @@
 package com.newsdemo.ui.vtex.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.util.ArrayMap;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import com.newsdemo.R;
 import com.newsdemo.app.Constants;
+import com.newsdemo.ui.vtex.activity.NodeListActivity;
 import com.newsdemo.util.SystemUtil;
 import com.newsdemo.widget.FlowLayout;
 
@@ -70,7 +72,11 @@ public class NodeAdapter extends RecyclerView.Adapter<NodeAdapter.ViewHolder>{
 
         @Override
         public void onClick(View v) {
-
+            Intent intent = new Intent();
+            intent.setClass(mContext, NodeListActivity.class);
+            intent.putExtra(Constants.IT_VTEX_NODE_NAME,nodeName);
+            intent.putExtra(Constants.IT_VTEX_NODE_VALUE,nodeValue);
+            mContext.startActivity(intent);
         }
     }
 

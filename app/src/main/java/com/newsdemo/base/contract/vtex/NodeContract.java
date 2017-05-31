@@ -8,22 +8,23 @@ import com.newsdemo.model.bean.NodeListBean;
 import java.util.List;
 
 /**
- * Created by jianqiang.hu on 2017/5/28.
+ * Created by jianqiang.hu on 2017/5/31.
  */
 
-public interface   NodeContract {
+public interface NodeContract {
 
+    interface View extends BaseView{
+        void showContent(List<NodeListBean> mList);
 
-    interface View extends BaseView {
-        void showContent(List<NodeListBean> mList) ;
-
-        void showTopInfo(NodeBean mTopInfo);
+        void showTopInfo(NodeBean mTopIngo);
     }
 
-    interface Presenter extends BasePresenter<NodeContract.View>{
+
+    interface Presenter extends BasePresenter<View>{
+
         void getContent(String node_name);
 
         void getTopInfo(String node_name);
-    }
 
+    }
 }

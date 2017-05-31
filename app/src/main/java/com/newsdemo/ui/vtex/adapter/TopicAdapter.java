@@ -76,7 +76,7 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.ViewHolder>{
         TextView tvTopicName;
         @BindView(R.id.tv_topic_tips)
         TextView tvTopicTips;
-        @BindView(R.id.iv_topic_comment)
+        @BindView(R.id.tv_topic_comment)
         TextView tvTopicComment;
         @BindView(R.id.tv_topic_node)
         TextView tvTopicNode;

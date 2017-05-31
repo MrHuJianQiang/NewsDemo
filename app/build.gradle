@@ -41,6 +41,8 @@ dependencies {
     compile rootProject.ext.dependencies.materialCalendarview
     compile rootProject.ext.dependencies.gildeTrans
     compile rootProject.ext.dependencies.PhotoView
+    compile rootProject.ext.dependencies.htmlTextview
+
 
     //other
     compile rootProject.ext.dependencies.logger
