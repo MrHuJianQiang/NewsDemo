@@ -8,6 +8,7 @@ import com.newsdemo.ui.gank.fragment.GirlFragment;
 import com.newsdemo.ui.gank.fragment.TechFragment;
 import com.newsdemo.ui.gold.fragment.GoldMainFragment;
 import com.newsdemo.ui.gold.fragment.GoldPageFragment;
+import com.newsdemo.ui.main.fragment.SettingFragment;
 import com.newsdemo.ui.vtex.fragment.VtexPagerFragment;
 import com.newsdemo.ui.wechat.fragment.WechatMainFragment;
 import com.newsdemo.ui.zhihu.fragment.CommentFragment;
@@ -48,4 +49,6 @@ public interface FragmentComponent {
     void inject(GoldPageFragment goldPageFragment);
 
     void inject(VtexPagerFragment vtexPagerFragment);
+
+    void inject(SettingFragment settingFragment);
 }

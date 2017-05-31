@@ -86,11 +86,11 @@ public class ZhihuDetailPresenter extends RxPresent<ZhihuDetailContract.View> im
 
     @Override
     public boolean getNoImageState() {
-        return false;
+        return mDataManager.getNoImageState();
     }
 
     @Override
     public boolean getAutoCacheState() {
-        return false;
+        return mDataManager.getAutoCacheState();
     }
 }
