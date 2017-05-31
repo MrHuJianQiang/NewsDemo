@@ -40,7 +40,7 @@
             android:textSize="12sp"
             />
         <TextView
-            android:id="@+id/iv_topic_comment"
+            android:id="@+id/tv_topic_comment"
             android:layout_alignParentEnd="true"
             android:gravity="center_vertical"
             android:textSize="12sp"
@@ -54,7 +54,7 @@
 
         <TextView
             android:id="@+id/tv_topic_node"
-            android:layout_toStartOf="@id/iv_topic_comment"
+            android:layout_toStartOf="@id/tv_topic_comment"
             android:layout_marginEnd="5dp"
             android:paddingTop="2dp"
             android:paddingBottom="2dp"
